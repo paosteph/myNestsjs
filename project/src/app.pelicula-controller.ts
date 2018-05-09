@@ -4,6 +4,10 @@ import {Controller, Get, HttpCode, Param, Post, Req, Res} from "@nestjs/common";
 export class AppPeliculaController {
     peliculas: Pelicula[] = [];
 
+    constructor(private _usuarioService,UsuarioService){
+
+    }
+
     @Get('mostrarCartelera')
     mostrarCartelera() {
         return this.peliculas;
