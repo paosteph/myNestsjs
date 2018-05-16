@@ -35,6 +35,8 @@ export class ParametrosController{
             hostname: request.hostname,
             subdomains: request.subdomains,
             ip: request.ip,
+            return response.redirect(301, '/Pelicula/mostrarCartelera');
+    }
             method: request.method,
             originalUrl: request.originalUrl,
             path: request.path,
@@ -43,8 +45,6 @@ export class ParametrosController{
         };
         console.log(respuesta);
         //return response.send()
-        return response.redirect(301, '/Pelicula/mostrarCartelera');
-    }
 
     @Get('recuperarUsuario')
     recuperarUsuario(){
