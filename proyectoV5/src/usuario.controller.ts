@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Query, Req, Res} from "@nestjs/common";
+import {Controller, Get, Post, Query, Req, Res, UsePipes} from "@nestjs/common";
 import {Usuario, UsuarioService} from "./usuario.service";
 
 
@@ -10,6 +10,7 @@ export class UsuarioController {
     }
 
     @Post('crear')
+    //@UsePipes()
     crearUsuario(
         @Query() queryParametros,
         @Req() request,
