@@ -1,6 +1,6 @@
-import {Component} from "@nestjs/common";
+import {Component, Injectable} from "@nestjs/common";
 
-@Component()
+@Injectable()
 export class UsuarioService {
     arregloUsuarios: Usuario[] = [];
 

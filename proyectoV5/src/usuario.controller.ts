@@ -1,11 +1,13 @@
-import {Controller, Get, Post, Query, Req, Res, UsePipes} from "@nestjs/common";
+import {Controller, Get, Post, Query, ReflectMetadata, Req, Res, UseGuards, UsePipes} from "@nestjs/common";
 import {Usuario, UsuarioService} from "./usuario.service";
+import {UsuarioGuard} from "./guards/usuario.guard";
 
 
 @Controller('Usuario')
+@UseGuards(UsuarioGuard)
 export class UsuarioController {
 
-    constructor(private _usuarioService: UsuarioService) {
+    /*constructor(private _usuarioService: UsuarioService) {
 
     }
 
@@ -80,6 +82,24 @@ export class UsuarioController {
         //request.cookie.hola;
 
 
+    }*/
+
+    @Get('mostrar')
+    @ReflectMetadata('nombreDato','ValorM')
+    @ReflectMetadata('permiso','privado')
+    @ReflectMetadata('necesitaValidacion', false)
+    @ReflectMetadata('roles', ['admin','estudiante'])
+    mostrar(){
+        return 'OK mostrar';
     }
+
+    @Get('crear')
+    @ReflectMetadata('nombreDato','ValorC')
+    @ReflectMetadata('permiso','publico')
+    @ReflectMetadata('necesitaValidacion', true)
+    crear(){
+        return 'OK crear';
+    }
+
 
 }
